@@ -527,3 +527,100 @@ a {
     }
   }
 }
+
+/* ==========================================================================
+   Lovable screenshot parity — pass 1 (Nov 2026)
+   Source: Carbon Notebook Sandbox, desktop screenshots supplied Nov 16.
+   Jekyll retains its own templates, content, assets, and navigation behavior.
+   ========================================================================== */
+
+/* The notebook prototype uses a single, readable stack of featured cards. */
+.layout--home-custom .categories-showcase {
+  .archive__list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .archive__item {
+    padding: 1.25rem;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: $code-background-color-dark;
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
+
+/* Role-specific resume links use the notebook's compact arrow-list treatment. */
+.resume-variants {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    font-family: $header-font-family;
+
+    &::before {
+      content: "→";
+      color: $primary-color;
+      display: inline-block;
+      margin-right: 0.75rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: $link-color-hover;
+    }
+  }
+}
+
+/* Native disclosure: preserves keyboard interaction and existing resume links. */
+details.resume-archive {
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  background-color: $code-background-color;
+
+  > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.625rem 0.875rem;
+    font-family: $header-font-family;
+    color: $text-color;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: "▸";
+      color: $primary-color;
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      background-color: $code-background-color-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
+  }
+
+  &[open] > summary::before {
+    content: "▾";
+  }
+
+  > ul {
+    border-top: 1px solid $border-color;
+    margin: 0;
+    padding: 0.75rem 1rem 0.85rem 2rem;
+  }
+}
